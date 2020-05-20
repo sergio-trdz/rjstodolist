@@ -12,17 +12,8 @@ class App extends Component {
   state = {
     todos: [
       {
-        id: uuid.v4,
-        title: 'Take out the trash',
-        completed: false
-      },
-      {
-        id: uuid.v4,
-        title: 'Dinner with wife',
-        completed: true
-      },      {
-        id: uuid.v4,
-        title: 'Arigatou',
+        id: uuid.v4(),
+        title: 'test1',
         completed: false
       }
     ]
@@ -40,8 +31,13 @@ class App extends Component {
 
   //Delete Todo
   delTodo = (id) => {
-    this.setState({ todos: [...this.state.todos.filter(todo => todo.id 
-      !== id)] });
+    const newTodos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+
+    this.setState({
+      todos: newTodos,
+    });
   }
 
   //Add Todo
@@ -51,18 +47,23 @@ class App extends Component {
       title,
       completed: false
     }
-    this.setState({ todos: [...this.state.todos, newTodo] });
+
+    const newtodos = this.state.todos
+    newtodos.push(newTodo);
+    
+    this.setState({ 
+      todos: newtodos
+    });
   }
 
 
   render() {
-    console.log(this.state.todos)
     return (
       <Router>
         <div className="App">
           <div className="container">
             <Header />
-            <Route exact path="/" render={props => (
+            <Route path="/" render={props => (
               <React.Fragment>
                 <AddTodo addTodo={this.addTodo} />
                 <Todos todos={this.state.todos} markComplete={this.markComplete} 
