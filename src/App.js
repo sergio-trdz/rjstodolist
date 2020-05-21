@@ -6,14 +6,32 @@ import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
 import uuid from 'uuid';
 
+import { Text, View } from "react";
+
+
 import './App.css';
+
+
+//white screen background
+const view = () => {
+  return (
+    <View style={{backgroundColor: 'white', flex:1}}>
+      <Text>Some Text</Text>
+    </View>
+   );
+ };
 
 class App extends Component {
   state = {
     todos: [
       {
         id: uuid.v4(),
-        title: 'test1',
+        title: 'make a list',
+        completed: true
+      },
+      {
+        id: uuid.v4(),
+        title: 'finish a list',
         completed: false
       }
     ]
@@ -79,3 +97,5 @@ class App extends Component {
 }
 
 export default App;
+
+
