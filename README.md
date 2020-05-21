@@ -15,19 +15,3 @@ Box you can check to mark a todo thing as completed (line between text pop-up).
 ## Delete button
 
 Button you can press to remove completely a todo thing from screen.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Have fun!
